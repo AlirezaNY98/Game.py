@@ -103,7 +103,7 @@ def reset():
 # screen setups
 screen = turtle.Screen()
 screen.setup(Width, Height)
-screen.bgcolor("pink")
+screen.bgcolor("black")
 screen.tracer(0)
 
 # event handler
@@ -113,7 +113,7 @@ bind_direction_keys()
 # snake shape
 stamper = turtle.Turtle()
 stamper.shape("square")
-stamper.color("black")
+stamper.color("green")
 stamper.penup()
 
 # food shape
