@@ -5,9 +5,9 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 echo -e "${GREEN}delete nginx ...${NC}"
-apt-get remove nginx nginx-common
-apt-get purge nginx nginx-common
-apt-get autoremove
+apt-get remove nginx nginx-common -y
+apt-get purge nginx nginx-common -y
+apt-get autoremove -y
 
 echo -e "${GREEN}delete docker...${NC}"
 sudo apt-get purge -y docker-engine docker docker.io docker-ce  
@@ -21,7 +21,7 @@ sudo rm -rf /usr/bin/docker-compose
 
 echo -e "${GREEN}install nginx ...${NC}"
 apt update
-apt install nginx
+apt install nginx -y
 
 echo -e "${GREEN}install docker ....${NC}"
 apt-get remove docker docker-engine docker.io containerd runc
@@ -40,7 +40,7 @@ rm /usr/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-composes
 
 echo -e "${GREEN}change nginx webpage ...${NC}"
-sed -i 's/Welcome to nginx!/Welcome to Chabokan!/g' /usr/share/nginx/html/index.html
+sed -i 's/Welcome to nginx!/Welcome to Chabokan!/g' /var/www/html/index.nginx-debian.html
 
 echo -e "${GREEN}pull config ...${NC}"
 git clone "https://github.com/mohammad76/config-server.git"
